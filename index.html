@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Password Strength Checker</title>
+</head>
+
+<body>
+    <h1>Password Strength Checker</h1>
+    <form>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Check</button>
+    </form>
+    <div id="feedback"></div>
+    <script>
+        // select the element of interest
+        let passwordTxt = document.getElementById("password");
+        let pressCheck = document.getElementById("submit");
+        let feedBack = document.getElementById("feedBack");
+
+        // bind to the listener
+        pressCheck.addEventListener("click", checkPassWord);
+
+        let count = 0
+
+        function checkPassWord() {
+            let passWordCheck = password.value;
+
+            if (passWordCheck.match(/.{8,}/)) {
+                count = count + 1;
+            }
+            if (passWordCheck.match(/[A-Z])/)) {
+                count = count + 1;
+            }
+            if (passWordCheck.match(/[a-z]/)) {
+                count = count + 1;
+            }
+            if (passWordCheck.match(/.*/)) {
+                count = + 1;
+            }
+            if (passWordCheck.match(/[0-9]/)) {
+                count = count = + 1;
+            }
+
+            if (count == 5) {
+                feedBack.innerHTML = "strong";
+            } else if (count >= 3) {
+                feedBack.innerHTML = "Medium PassWord";
+            } else if (count <= 2) {
+                feedBack.innerHTML = "weak Password";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
